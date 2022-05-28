@@ -5,7 +5,7 @@ const TodoItem = ({item}) => {
     return (
         <tr>
             <td>
-                {item.project_id}
+                {item.project}
             </td>
             <td>
                 {item.text}

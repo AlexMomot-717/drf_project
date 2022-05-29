@@ -11,7 +11,7 @@ router = DefaultRouter()
 # router.register('users', UserViewSet)
 router.register('users', UserCustomViewSet)
 router.register('projects', ProjectViewSet)
-router.register('todo', ToDoViewSet)
+router.register('todos', ToDoViewSet)
 # router.register('todo', ToDoViewSet, basename='todo')
 # router.register('project', ProjectViewSet, basename='project')
 

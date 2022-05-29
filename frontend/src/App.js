@@ -119,7 +119,7 @@ class App extends React.Component {
                         <Route exact path='/projects' component={() => <ProjectList items={this.state.projects} /> }/>
                         <Route exact path='/todos' component={() => <TodoList items={this.state.todos} /> }/>
                         <Route exact path='/login' component={() => <LoginForm get_token={(login, password) => this.get_token(login, password)} />} />
-                        <Route exact path='user/:id' component={() => <UserProjectList items={this.state.projects} /> }/>
+                        <Route exact path='user/:id' component={() => <UserProjectList items={this.state.project} /> }/>
                         <Route exact path='/login' component={() => <LoginForm get_token={(login, password) => this.get_token(login, password)} />} />
 
                         <Redirect from='/users' to='/' />

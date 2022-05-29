@@ -1,17 +1,24 @@
-from rest_framework.serializers import HyperlinkedModelSerializer
+from rest_framework.serializers import HyperlinkedModelSerializer, ModelSerializer
 from projects.models import Project, ToDo
 from users.serializers import UserSerializer
 
 
-class ProjectSerializer(HyperlinkedModelSerializer):
+class ProjectSerializerBase(ModelSerializer):
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+
+class ProjectSerializer(ModelSerializer):
     # user = UserSerializer(many=True)  #  несколько пользователей, работающих над проектом
+    # user = UserSerializer()
 
     class Meta:
         model = Project
         fields = '__all__'
 
 
-class ToDoSerializer(HyperlinkedModelSerializer):
+class ToDoSerializer(ModelSerializer):
     # user = UserSerializer()  # пользователь, создающий конкретную заметку по проекту
     # project = ProjectSerializer()
 

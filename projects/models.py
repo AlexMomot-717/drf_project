@@ -5,7 +5,8 @@ from users.models import User
 class Project(models.Model):
     name = models.CharField(max_length=64)
     repo_link = models.URLField()
-    user = models.ManyToManyField(User)
+    # user = models.ManyToManyField(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class ToDo(models.Model):

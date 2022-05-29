@@ -17,7 +17,7 @@ const TodoItem = ({item}) => {
                 {item.updated_at}
             </td>
             <td>
-                { item.user.username }
+                { item.user}
             </td>
             <td>
                 {item.is_active}

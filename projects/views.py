@@ -22,7 +22,7 @@ class ProjectViewSet(ModelViewSet):
     # renderer_classes = [JSONRenderer]
     serializer_class = ProjectSerializer
     filterset_class = ProjectFilter
-    pagination_class = ProjectPaginator
+    # pagination_class = ProjectPaginator
 
 
 class ToDoViewSet(ModelViewSet):
@@ -30,7 +30,7 @@ class ToDoViewSet(ModelViewSet):
     # renderer_classes = [JSONRenderer]
     serializer_class = ToDoSerializer
     filterset_fields = ['project']
-    pagination_class = ToDoPaginator
+    # pagination_class = ToDoPaginator
 
     def destroy(self, request, pk):
         todo = self.get_object()

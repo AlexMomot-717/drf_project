@@ -78,7 +78,7 @@ class App extends React.Component {
                 let new_project = response.data
                 new_project.name = ''
                 new_project.repo_link = ''
-                const user = this.state.users.filter((item) => item.id === new_project.user)[0]
+                const user = this.state.users.filter((user) => item.id === new_project.user)[0]
                 new_project.user = user
                 this.setState({projects: [...this.state.projects, new_project]})
             }).catch(error => console.log(error))
@@ -94,7 +94,7 @@ class App extends React.Component {
                 const project = this.state.projects.filter((item) => item.id === new_todo.project)[0]
                 new_todo.project = project
                 new_todo.text = ''
-                const user = this.state.users.filter((item) => item.id === new_todo.user)[0]
+                const user = this.state.users.filter((user) => item.id === new_todo.user)[0]
                 new_todo.user = user
                 new_todo.is_active = true
                 this.setState({todos: [...this.state.todos, new_todo]})

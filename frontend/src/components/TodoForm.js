@@ -4,7 +4,7 @@ import React from 'react'
 class TodoForm extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {project: props.project[0].id, text: '', user: props.user[0].id, is_active: true}
+        this.state = {project: props.project[0]?.id, text: '', user: props.user[0]?.id, is_active: true}
     }
 
     handleChange(event) {

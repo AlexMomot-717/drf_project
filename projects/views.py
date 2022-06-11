@@ -9,12 +9,12 @@ from .serializers import ProjectSerializer, ToDoSerializer, ProjectSerializerBas
 from .filters import ProjectFilter
 
 
-class ProjectPaginator(LimitOffsetPagination):
-    default_limit = 10
-
-
-class ToDoPaginator(LimitOffsetPagination):
-    default_limit = 20
+# class ProjectPaginator(LimitOffsetPagination):
+#     default_limit = 10
+#
+#
+# class ToDoPaginator(LimitOffsetPagination):
+#     default_limit = 20
 
 
 class ProjectViewSet(ModelViewSet):

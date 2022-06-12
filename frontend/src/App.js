@@ -78,7 +78,7 @@ class App extends React.Component {
                 let new_project = response.data
                 new_project.name = ''
                 new_project.repo_link = ''
-                const user = this.state.users.filter((user) => item.id === new_project.user)[0]
+                const user = this.state.users.filter((user) => user.id === new_project.user)[0]
                 new_project.user = user
                 this.setState({projects: [...this.state.projects, new_project]})
             }).catch(error => console.log(error))
@@ -87,14 +87,14 @@ class App extends React.Component {
 
     createTodo(project, text, user, is_active) {
         const headers = this.get_headers()
-        const data = {project: project, text: text, user: user, is_active: true}
+        const data = {project: project, text: text, user: user, is_active: is_active}
         axios.post('http://127.0.0.1:8000/api/todos/', data, {headers})
             .then(response => {
                 let new_todo = response.data
                 const project = this.state.projects.filter((item) => item.id === new_todo.project)[0]
                 new_todo.project = project
                 new_todo.text = ''
-                const user = this.state.users.filter((user) => item.id === new_todo.user)[0]
+                const user = this.state.users.filter((user) => user.id === new_todo.user)[0]
                 new_todo.user = user
                 new_todo.is_active = true
                 this.setState({todos: [...this.state.todos, new_todo]})
@@ -105,9 +105,8 @@ class App extends React.Component {
 
     deleteProject(id) {
         const headers = this.get_headers()
-        axios.delete('http://127.0.0.1:8000/api/projects/${id}', {headers})
-            .then(response => {
-                this.setState({projects: this.state.projects.filter((item)=>item.id !== id)})
+        axios.delete('http://127.0.0.1:8000/api/projects/${id}', id, {headers})
+            .then(response => {this.setState({projects: this.state.projects.filter((item)=>item.id !== id)})
             }).catch(error => console.log(error))
     }
 
@@ -131,13 +130,13 @@ class App extends React.Component {
 
         axios.get('http://127.0.0.1:8000/api/projects/', {headers})
             .then(response => {
-                const projects = response.data['results']
+                const projects = response.data
                 this.setState({'projects': projects})
             }).catch(error => console.log(error))
 
         axios.get('http://127.0.0.1:8000/api/todos/', {headers})
             .then(response => {
-                const todos = response.data['results']
+                const todos = response.data
                 this.setState({'todos': todos})
             }).catch(error => console.log(error))
     }

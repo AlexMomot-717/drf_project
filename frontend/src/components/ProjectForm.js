@@ -4,7 +4,7 @@ import React from 'react'
 class ProjectForm extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {name: '', repo_link: '', user: props.user[0]?.id}
+        this.state = {name: '', repo_link: '', user: props.user}
     }
 
     handleChange(event) {
@@ -38,7 +38,7 @@ class ProjectForm extends React.Component {
 
                 <div className="form-group">
                     <label for="user">user</label>
-                        <select name="user" className='form-control' onChange={(event)=>this.handleChange(event)}> {this.props.users.map((user)=><option value={user.id}>{user.name}</option>)}
+                        <select name="user" className='form-control' onChange={(event)=>this.handleChange(event)}> {this.props.users.map((user)=><option value={user.id}>{user.username}</option>)}
                         </select>
 
                 </div>

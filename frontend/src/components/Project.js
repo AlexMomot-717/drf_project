@@ -15,10 +15,11 @@ const ProjectItem = ({item, deleteProject}) => {
                 {item.repo_link}
             </td>
             <td>
-                {item.user.id}
+                {item['user']}
             </td>
             <td>
                 <button onClick={()=>deleteProject(item.id)} type='button'>Delete</button>
+
             </td>
 
         </tr>

@@ -10,7 +10,7 @@ const TodoItem = ({item, deleteTodo}) => {
                 {item.id}
             </td>
             <td>
-                {item.project.id}
+                {item['project']}
             </td>
             <td>
                 {item.text}
@@ -22,7 +22,7 @@ const TodoItem = ({item, deleteTodo}) => {
                 {item.updated_at}
             </td>
             <td>
-                {item.user.id}
+                {item['user']}
             </td>
             <td>
                 {item.is_active}
